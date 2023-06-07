@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CarService {
     void add(Car car);
-    List<User> listCars();
+    List<Car> listCars();
 }

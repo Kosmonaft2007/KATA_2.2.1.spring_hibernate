@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
-public class CarServiceImp {
+public class CarServiceImp implements CarService {
     @Autowired
     private CarDao carDao;
 
