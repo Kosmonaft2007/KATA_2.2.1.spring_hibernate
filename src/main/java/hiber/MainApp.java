@@ -25,23 +25,21 @@ public class MainApp {
 
         List<User> users = userService.listUsers();
         for (User user : users) {
-            System.out.println("Id = "+user.getId());
-            System.out.println("First Name = "+user.getFirstName());
-            System.out.println("Last Name = "+user.getLastName());
-            System.out.println("Email = "+user.getEmail());
+            System.out.println("Id = " + user.getId());
+            System.out.println("First Name = " + user.getFirstName());
+            System.out.println("Last Name = " + user.getLastName());
+            System.out.println("Email = " + user.getEmail());
             System.out.println("Car: " + user.getUserCar());
             System.out.println();
         }
 
         List<User> userList = userService.listUsersByModelAndSeries("car1", 123);
         for (User user : userList) {
-            System.out.println("Id = "+user.getId());
-            System.out.println("First Name = "+user.getFirstName());
-            System.out.println("Last Name = "+user.getLastName());
-            System.out.println("Email = "+user.getEmail());
+            System.out.println("Id = " + user.getId());
+            System.out.println("First Name = " + user.getFirstName());
+            System.out.println("Last Name = " + user.getLastName());
+            System.out.println("Email = " + user.getEmail());
         }
-
         context.close();
-
     }
 }
