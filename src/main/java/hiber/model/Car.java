@@ -7,18 +7,18 @@ import javax.persistence.*;
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "car_id")
-    private Long carId;
+//    @Column(name = "car_id")
+    private long carId;
     @Column(name = "model")
     private String model;
     @Column(name = "series")
     private int series;
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @MapsId
     @JoinColumn(name = "user_id")
     private User user;
 
-    public Car(Long carId, String model, int series) {
-        this.carId = carId;
+    public Car(String model, int series) {
         this.model = model;
         this.series = series;
     }
@@ -27,11 +27,11 @@ public class Car {
 
     }
 
-    public Long getCarId() {
+    public long getCarId() {
         return carId;
     }
 
-    public void setCarId(Long carId) {
+    public void setCarId(long carId) {
         this.carId = carId;
     }
 

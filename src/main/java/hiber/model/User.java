@@ -20,15 +20,16 @@ public class User {
     private String email;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
-    private Car car;
+    private Car userCar;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String email) {
+    public User(String firstName, String lastName, String email, Car car) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.userCar = car;
     }
 
     public Long getId() {
@@ -61,5 +62,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Car getUserCar() {
+        return userCar;
+    }
+
+    public void setUserCar(Car userCar) {
+        this.userCar = userCar;
     }
 }

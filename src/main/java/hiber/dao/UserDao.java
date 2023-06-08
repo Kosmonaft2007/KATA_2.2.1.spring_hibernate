@@ -9,4 +9,6 @@ public interface UserDao {
    List<User> listUsers();
 
    User findUser(String carModel, int carSeries);
+
+    List<User> getUserByCar(String model, int series);
 }
