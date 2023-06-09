@@ -13,9 +13,7 @@ public class Car {
     private String model;
     @Column(name = "series")
     private int series;
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @MapsId
-    @JoinColumn(name = "user_id")
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "userCar")
     private User user;
 
     public Car(String model, int series) {
@@ -24,7 +22,6 @@ public class Car {
     }
 
     public Car() {
-
     }
 
     public long getCarId() {

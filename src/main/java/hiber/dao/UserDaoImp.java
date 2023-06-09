@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public class UserDaoImp implements UserDao {
 
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     @Autowired
     public UserDaoImp(SessionFactory sessionFactory) {
@@ -25,7 +25,7 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public List<User> listUsers() {
-        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User");
+        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User", User.class);
         return query.getResultList();
     }
 

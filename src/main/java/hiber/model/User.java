@@ -19,7 +19,8 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "car_id")
     private Car userCar;
 
     public User() {
@@ -70,5 +71,16 @@ public class User {
 
     public void setUserCar(Car userCar) {
         this.userCar = userCar;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", userCar=" + userCar +
+                '}';
     }
 }
