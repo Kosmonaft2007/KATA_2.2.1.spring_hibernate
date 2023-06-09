@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,7 @@ public class User {
     private String email;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "car_id")
+    @JoinColumn(name = "car_id", referencedColumnName = "id")
     private Car userCar;
 
     public User() {
@@ -69,8 +69,9 @@ public class User {
         return userCar;
     }
 
-    public void setUserCar(Car userCar) {
+    public Car setUserCar(Car userCar) {
         this.userCar = userCar;
+        return userCar;
     }
 
     @Override
