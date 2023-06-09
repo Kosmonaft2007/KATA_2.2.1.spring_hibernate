@@ -28,24 +28,28 @@ public class UserDaoImp implements UserDao {
         TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User", User.class);
         return query.getResultList();
     }
-
-//    @Override
-//    @SuppressWarnings("unchecked")
-//    public User getUserByCar(String model, int series) {
-//        String hql  = "from User users where users.userCar.model = :model and users.userCar.series = :series";
-//        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(hql, User.class);
-//        query.setParameter("model", model);
-//        query.setParameter("series", series);
-//        return query.getSingleResult();
-//    }
-
+    @Override
+    public User findUser(String carModel, int carSeries) {
+        return null;
+    }
 
     @Override
-    public List<User> getUserByCar(String model, int series) {
-
-        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User where userCar.model = :model and userCar.series = :series", User.class);
+    @SuppressWarnings("unchecked")
+    public User getUserByCar(String model, int series) {
+        String hql  = "from User users where users.userCar.model = :model and users.userCar.series = :series";
+        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(hql, User.class);
         query.setParameter("model", model);
         query.setParameter("series", series);
-        return query.getResultList();
+        return query.getSingleResult();
     }
+
+
+//    @Override
+//    public List<User> getUserByCar(String model, int series) {
+//
+//        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User where userCar.model = :model and userCar.series = :series", User.class);
+//        query.setParameter("model", model);
+//        query.setParameter("series", series);
+//        return query.getResultList();
+//    }
 }

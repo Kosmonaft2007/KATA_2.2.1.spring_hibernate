@@ -20,17 +20,18 @@ public class User{
     private String email;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "car_id", referencedColumnName = "id")
+//    @JoinColumn(name = "car_id")
+    @JoinColumn(name = "car_id")
     private Car userCar;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, Car car) {
+    public User(String firstName, String lastName, String email, Car userCar) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.userCar = car;
+        this.userCar = userCar;
     }
 
     public Long getId() {
